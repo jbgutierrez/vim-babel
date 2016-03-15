@@ -150,6 +150,9 @@ function! babel#Babel(startline, endline, args)
         if exists('options.presets')
           let b:babel_options = b:babel_options . ' --presets ' . join(options.presets, ",")
         endif
+        if exists('options.plugins')
+          let b:babel_options = b:babel_options . ' --plugins ' . join(options.plugins, ",")
+        endif
         break
       else
         let base_babelrc = fnamemodify(babelrc, ':p:h:h')
